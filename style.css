@@ -1,0 +1,141 @@
+:root {
+  --bg: #161617;
+  --text: #f4f4f4;
+  --accent: #ffffff;
+  --font: 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+}
+hr{
+    width: 100%;
+    height: 8px;
+    border: none;
+    margin-bottom: 5px;
+}
+
+/* hr colors */
+#red{
+    background-color: #E33434;
+}
+#blue{
+    background-color: #4234E3;
+}
+#green{
+    background-color: #34E334;
+}
+#yellow{
+    background-color: #E3DB34;
+}
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+p{
+    font-weight: 100;
+    font-size: 22px;
+}
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+h1{
+    margin-top: -50px;
+}
+header {
+    margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  width: 100%;
+}
+
+header h1 a {
+  font-size: 2rem;
+  letter-spacing: -1px;
+}
+nav{
+    margin-right: 4rem;
+}
+nav a {
+  margin-left: 1rem;
+  font-weight: 100;
+}
+a#active{
+background-color: #1f1f1f;
+    padding: 8px 20px;
+    border-radius: 2px;
+}
+.intro {
+  margin-bottom: 3rem;
+  font-style: italic;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #1a1a1a;
+  border-left: 3px solid var(--accent);
+  padding: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateX(5px);
+}
+
+footer {
+  margin-top: 4rem;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+@media (max-width: 850px){
+    nav{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0em;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+    padding: 12rem 10rem;
+    background: red;
+    }
+    a#active{
+        padding: 0;
+        background: none;
+        color: grey;
+    }
+    }
+    h1{
+        margin-left: 2rem !important;
+    }
+    h1 a img{
+        width: 16.7rem;
+    }
+}
