@@ -46,7 +46,7 @@ hr{
 }
 p{
     font-weight: 100;
-    font-size: 22px;
+    font-size: 19.5px;
 }
 a {
   color: var(--accent);
@@ -93,17 +93,23 @@ background-color: #1f1f1f;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  margin: 0rem 3rem 8rem 3rem;
 }
 
 .card {
-  background: #1a1a1a;
-  border-left: 3px solid var(--accent);
-  padding: 1rem;
-  transition: transform 0.2s ease;
+    background: var(--bg);
+    border-left: 5px solid var(--accent);
+    padding: 1rem;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    animation: border_colorChange 7s ease-out infinite;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
 .card:hover {
-  transform: translateX(5px);
+  animation: bg_colorChange 5s ease-out infinite;
+  border: 2px solid #00000000;
+
 }
 
 footer {
@@ -115,22 +121,25 @@ footer {
 
 @media (max-width: 850px){
     nav{
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    bottom: 0em;
-    left: 50%;
-    transform: translateX(-50%);
-    justify-content: center;
-    align-items: center;
-    padding: 12rem 10rem;
-    background: red;
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        bottom: 0em;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        justify-content: space-around;
+        align-items: center;
+        padding: 2rem 0;
+        background: #0000004d;
+        backdrop-filter: blur(3rem);
+        height: 1rem;
     }
+
     a#active{
         padding: 0;
         background: none;
         color: grey;
-    }
     }
     h1{
         margin-left: 2rem !important;
@@ -139,3 +148,36 @@ footer {
         width: 16.7rem;
     }
 }
+
+    b{
+      animation: colorChange 1s steps(1, end) infinite;
+    }
+  @keyframes colorChange {
+    0%   { color: #E33434; }
+    25%  { color: #4234E3; }
+    50%  { color: #34E334; }
+    75%  { color: #E3DB34; }
+    100% { color: #E33434; }
+  }
+    @keyframes bg_colorChange {
+    0%   { background-color: #E33434; }
+    25%  { background-color: #4234E3; }
+    50%  { background-color: #34E334; }
+    75%  { background-color: #E3DB34; }
+    100% { background-color: #E33434; }
+  }
+    @keyframes border_colorChange {
+    0%   { border: 2px solid #E33434; }
+    25%  { border: 2px solid #4234E3; }
+    50%  { border:2px solid #34E334; }
+    75%  { border:2px solid #E3DB34; }
+    100% { border:2px solid #E33434; }
+  }
+
+  article{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
