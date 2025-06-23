@@ -10,33 +10,48 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="load()">
   <header>
-    <hr id="red"><hr id="green"><hr id="yellow"><hr id="blue">
+    <span id="lines">
+<hr id="red"><hr id="green"><hr id="yellow"><hr id="blue">
+    </span>
+    
 
-    <div class="header">
+    <div id="header" class="header">
         <h1 style="margin-left: 4rem;">
             <a href="/"><img style="margin-left: -11px;" src="assest/Mobin..svg" alt="Logo"></a>
             <p style="margin-top: -10px;">Wandering through thought ruins</p>
         </h1>
 
-        <nav>
+        <nav id="nav">
             <a id="active" href="/">Home</a>
-            <a href="about/index.html">About</a>
+            <button onclick="randColor()">Random Color</button>
+            <button onclick="dlMode()">O</button>
         </nav>
     </div>
   </header>
-
+        <nav id="nav_mobile">
+            <button onclick="randColor()">Random Color</button>
+            <a id="active" href="/">Home</a>
+            <button onclick="dlMode()">O</button>
+        </nav>
   <main>
 
     <!-- Projects -->
     <section class="intro">
-      <p>- Projects -</p>
+      <p id="p1">- Projects -</p>
     </section>
 
-    <section class="posts">
+    <section id="posts1" class="posts">
 
-      <a href="/posts/testPost.html" class="card">
+      <a href="https://theoldmobin.github.io/Jose" class="card pinnedCard">
+        <h2><b>⤷</b> Jose - Advice</h2>
+        <p>An API-Based dark quote generator, Very different from others.</p>
+        <i>📍 pinned</i>
+      </a>
+
+
+      <a href="https://mahanmalekjary.github.io/workshop" class="card">
         <h2><b>⤷</b> Ramco Workshop</h2>
         <p>A workshop/product manager ft.Mahan.</p>
       </a>
@@ -45,14 +60,15 @@
         <h2><b>⤷</b> Upcoming Project</h2>
         <p>More details soon.</p>
       </a>
+
     </section>
 
     <!-- Stories -->
     <section class="intro">
-      <p>- Stories -</p>
+      <p id="p2">- Stories -</p>
     </section>
 
-    <section class="posts">
+    <section id="posts2"  class="posts">
 
       <a href="/posts/Tree/index.html" class="card">
         <h2><b>⤷</b> Tree - Full Edition</h2>
@@ -77,10 +93,10 @@
 
     <!-- Games -->
          <section class="intro">
-      <p>- Games & Ideas -</p>
+      <p id="p3">- Games & Ideas -</p>
     </section>
 
-    <section class="posts">
+    <section id="posts3"  class="posts">
 
       <a href="/posts/testPost.html" class="card">
         <h2><b>⤷</b> Devil's spade</h2>
@@ -103,5 +119,6 @@
   <footer>
     <p>© 2025 Mobin Malek J</p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>

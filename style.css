@@ -1,7 +1,7 @@
 :root {
   --bg: #161617;
-  --text: #f4f4f4;
-  --accent: #ffffff;
+  --text: #bdbdc5;
+  --accent: #6970b6;
   --font: 'Courier New', monospace;
 }
 
@@ -12,30 +12,52 @@
 }
 
 body {
-  background: var(--bg);
+  background-color: var(--bg);
   color: var(--text);
   font-family: var(--font);
   line-height: 1.6;
+  /* transition: filter 0.25s ease; */
 }
 hr{
     width: 100%;
     height: 8px;
     border: none;
     margin-bottom: 5px;
+    animation: showUp 2s ease;
 }
+button{
+  padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: var(--accent);
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+}
+button:hover{
+  border: 1px solid var(--accent);
+  background-color: transparent;
+  color: var(--accent);
 
+}
+::-webkit-scrollbar{
+  background-color: var(--bg);
+  width: 8px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgb(33, 34, 41)
+}
 /* hr colors */
 #red{
-    background-color: #E33434;
+    background-color: #969ac7; /*[1st]*/
 }
 #blue{
-    background-color: #4234E3;
+    background-color: #454b9c; /*[4th]*/
 }
 #green{
-    background-color: #34E334;
+    background-color: #8084af; /*[2nd]*/
 }
 #yellow{
-    background-color: #E3DB34;
+    background-color: #6970b6; /*[3rd]*/
 }
 .header{
     width: 100%;
@@ -47,6 +69,7 @@ hr{
 p{
     font-weight: 100;
     font-size: 19.5px;
+    color: var(--text);
 }
 a {
   color: var(--accent);
@@ -70,7 +93,15 @@ header h1 a {
   font-size: 2rem;
   letter-spacing: -1px;
 }
+header span{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 nav{
+  position: sticky;
     margin-right: 4rem;
 }
 nav a {
@@ -78,9 +109,15 @@ nav a {
   font-weight: 100;
 }
 a#active{
-background-color: #1f1f1f;
+    border: 1px solid #c8c4d0;
     padding: 8px 20px;
-    border-radius: 2px;
+    border-radius: 8px;
+    color: #c8c4d0;
+    transition: all 0.2s ease;
+}
+a#active:hover{
+  background-color: #c8c4d0;
+  color: var(--bg);
 }
 .intro {
   margin-bottom: 3rem;
@@ -98,18 +135,34 @@ background-color: #1f1f1f;
 
 .card {
     background: var(--bg);
-    border-left: 5px solid var(--accent);
+    border: 1px solid rgba(128, 128, 128, 0.5);
     padding: 1rem;
     transition: all 0.2s ease;
-    border-radius: 8px;
-    animation: border_colorChange 7s ease-out infinite;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    border-radius:14px;
+    /* animation: border_colorChange 7s ease-out infinite; */
+    box-shadow: 0 50px 46px rgba(0, 0, 0, 0.18);
+    transform: translateY(-5px);
 }
 
 .card:hover {
-  animation: bg_colorChange 5s ease-out infinite;
-  border: 2px solid #00000000;
+  /* animation: bg_colorChange 5s ease-out infinite; */
+  border: 1px solid var(--accent);
+  box-shadow: 0 25px 40px #22212e1e;
+  transform: translateY(0);
 
+}
+#nav_mobile{
+  display: none;
+}
+.pinnedCard{
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+}
+i{
+    font-weight: 100;
+    font-size: 12px;
+    font-style: italic;
+    margin-left: 80%;
 }
 
 footer {
@@ -118,10 +171,18 @@ footer {
   font-size: 0.8rem;
   opacity: 0.6;
 }
+h2{
+  animation: fadeUp_Delay 2s ease;
+  color: var(--accent)
+}
 
 @media (max-width: 850px){
     nav{
-        display: flex;
+        display: none;
+    }
+    #nav_mobile{
+      z-index: 2;
+              display: flex;
         flex-direction: row;
         position: fixed;
         bottom: 0em;
@@ -134,13 +195,19 @@ footer {
         background: #0000004d;
         backdrop-filter: blur(3rem);
         height: 1rem;
+        animation: none;
+    }
+    #nav_mobile a#active{
+      padding: 5px 14px;
+      color: white;
+    }
+    .header{
+      animation: none;
+    }
+    .header h1{
+      animation: fadeUp 1.5s ease;
     }
 
-    a#active{
-        padding: 0;
-        background: none;
-        color: grey;
-    }
     h1{
         margin-left: 2rem !important;
     }
@@ -150,7 +217,8 @@ footer {
 }
 
     b{
-      animation: colorChange 1s steps(1, end) infinite;
+      /* animation: colorChange 1s steps(1, end) infinite; */
+      color: #8a8497;
     }
   @keyframes colorChange {
     0%   { color: #E33434; }
@@ -173,7 +241,36 @@ footer {
     75%  { border:2px solid #E3DB34; }
     100% { border:2px solid #E33434; }
   }
+@keyframes fadeUp{
+    from{opacity: 0; transform: translateY(2rem);}
+    to{opacity: 100%;transform: translateY(0);}
+}
+@keyframes fadeUp_Delay{
+    0%{opacity: 0; transform: translateY(2rem);}
+    45%{opacity: 0; transform: translateY(2rem);}
+    100%{opacity: 100%;transform: translateY(0);}
+}
+@keyframes fadeUp_DelayPlus{
+    0%{opacity: 0; transform: translateY(2rem);}
+    65%{opacity: 0; transform: translateY(2rem);}
+    100%{opacity: 100%;transform: translateY(0);}
+}
+@keyframes showUp{
+  0%{
+    width: 0%;
 
+  }
+  to{width: 100%;}
+}
+@keyframes showUp_Up{
+  from{
+    top: 50%
+  }
+
+  to{
+    top:6%;
+  }
+}
   article{
     width: 100%;
     display: flex;
